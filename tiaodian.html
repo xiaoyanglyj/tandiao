@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>
+    <img src="1.png" style="width:40px;height: 40px;position: absolute" id="imgID">
+</div>
+</body>
+<script language="JavaScript">
+    dirX=1;
+    dirY=1;
+    x=0;
+    y=0;
+    function move(){
+        x+=dirX;
+        y+=dirY;
+        var imgID=document.getElementById("imgID");
+        imgID.style.left= x+"px";
+        imgID.style.top=y+"px";
+
+       // alert(y+imgID.offsetHeight);
+        if(x+imgID.offsetWidth>=document.body.clientWidth|| x<=0){
+        //window.alert("od");
+            dirX=-dirX;
+        }
+        if(y+imgID.offsetHeight>=document.documentElement.clientHeight|| y<=0){
+            //alert(document.documentElement.clientHeight );取高度时要注意
+            dirY=-dirY;
+        }
+
+    }
+        setInterval("move()",1);
+</script>
+</html>
